@@ -1,0 +1,85 @@
+{
+    "loading": {
+        "list": "Loading Pokédex...",
+        "details": "Loading Details...",
+        "pokeworld": "Loading PokéWorld...",
+        "top": "Loading Top Pokémon..."
+    },
+    "buttons": {
+        "details": "Details",
+        "locate": "Locate",
+        "exit": "Exit",
+        "search": "Search",
+        "searchph": "Search Pokémon"
+    },
+    "statistics": {
+        "hp": "HP",
+        "attack": "Attack",
+        "defense": "Defense",
+        "special-attack": "Special Attack",
+        "special-defense": "Special Defense",
+        "speed": "Speed"
+    },
+    "list": {
+        "types": {
+            "all": "All",
+            "normal": "Normal",
+            "fighting": "Fighting",
+            "flying": "Flying",
+            "poison": "Poison",
+            "ground": "Ground",
+            "rock": "Rock",
+            "bug": "Bug",
+            "steel": "Steel",
+            "fire": "Fire",
+            "water": "Water",
+            "grass": "Grass",
+            "electric": "Electric",
+            "psychic": "Psychic",
+            "ghost": "Ghost",
+            "ice": "Ice",
+            "dark": "Dark",
+            "fairy": "Fairy"
+        }
+    },
+    "nav": {
+        "pokedex": "Pokédex",
+        "pokeworld": "Pokéworld",
+        "top": "Top Pokémon",
+        "lang": "Lang.",
+        "about": "About Us",
+        "language": {
+            "en": "English",
+            "es": "Spanish",
+            "ja": "Japonés"
+        }
+    },
+    "details": {
+        "description": "Description",
+        "stats": "Stats",
+        "evolutionchain": "Evolution Chain",
+        "noevolution": "This Pokémon has no evolution.",
+        "abilities": "Abilities",
+        "size": "Pokémon Size",
+        "movements": "Pokémon Moves",
+        "moves": {
+            "name": "Name",
+            "power": "Power",
+            "accuarcy": "Accuarcy",
+            "pp": "PP",
+            "type": "Type",
+            "description": "Description",
+            "learnby": "Learned by",
+            "atlevel": "at level"
+        }
+    },
+    "top": {
+        "speed": "Speed",
+        "sdefense": "S. Defense",
+        "sattack": "S. Attack",
+        "defense": "Defense",
+        "attack": "Attack",
+        "hp": "HP",
+        "average": "Average"
+    }
+}

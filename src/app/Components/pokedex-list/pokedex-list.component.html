@@ -1,0 +1,122 @@
+<div class="pokedex">
+    <div class="loading-container" *ngIf="!isLoaded">
+        <app-loading></app-loading>
+        <div class="loading-text">{{ 'loading.list' | translate }}</div>
+    </div>
+    <div class="pokedex__left">
+        <form action="#" class="search">
+            <select
+                class="search__select"
+                name="search__select"
+                [(ngModel)]="selectType"
+                (change)="onChange($event.target.value)"
+            >
+                <option value="" selected style="display:none">Type</option>
+                <option *ngFor="let type of pokemonTypes" value="{{ type }}">{{
+                    'list.types.' + type | translate
+                }}</option>
+            </select>
+            <input
+                type="text"
+                class="search__input"
+                placeholder="{{ 'buttons.searchph' | translate }}"
+                name="term"
+                [(ngModel)]="term"
+            />
+            <button class="search__button"></button>
+        </form>
+        <div class="pokemon-list">
+            <div
+                class="pokemon-list__item"
+                *ngFor="
+                    let pokemon of pokemonList | filterName: term;
+                    index as i
+                "
+                (click)="choosePokemon(pokemon)"
+                [class.pokemon-list__item--selected]="
+                    this.localPokemon.id == pokemon.id
+                "
+            >
+                <div class="pokemon-list__item-container">
+                    <span class="pokemon-list__number">N.{{ pokemon.id }}</span>
+                    <span class="pokemon-list__image"
+                        ><div><img src="{{ pokemon.image }}" /></div
+                    ></span>
+                    <span class="pokemon-list__name">{{
+                        pokemon.name | uppercase
+                    }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pokedex__right" *ngIf="pokemonList !== undefined">
+        <div class="inline">
+            <i
+                class="arrow arrow-left fas fa-caret-left"
+                (click)="leftArrow()"
+            ></i>
+            <div class="pokemon-display">
+                <div
+                    *ngIf="
+                        pokemonList == undefined && pokemonSelected == undefined
+                    "
+                    class="loading"
+                >
+                    Loading...
+                </div>
+                <div
+                    *ngIf="pokemonSelected !== undefined"
+                    class="pokemon-display__container"
+                >
+                    <div class="pokemon-display__name">
+                        {{ localPokemon.name | uppercase }}
+                    </div>
+                    <div class="pokemon-display__image">
+                        <img
+                            src="{{ currentSelectPokemonImage }}"
+                            class="pokemon-display__image--main"
+                            alt="pokemonImage"
+                        />
+                    </div>
+                    <div
+                        *ngIf="this.pokemonSelected.types !== undefined"
+                        class="pokemon-display__imageType"
+                    >
+                        <img
+                            src="assets/img/types_icons_2/{{
+                                this.pokemonSelected.types[0].type.name
+                            }}_icon.png"
+                            alt="{{ this.pokemonSelected.types[0].type.name }}"
+                        />
+                        <img
+                            *ngIf="this.pokemonSelected.types.length > 1"
+                            src="assets/img/types_icons_2/{{
+                                this.pokemonSelected.types[1].type.name
+                            }}_icon.png"
+                            alt="{{ this.pokemonSelected.types[1].type.name }}"
+                        />
+                    </div>
+                </div>
+            </div>
+            <i
+                class="arrow arrow-right fas fa-caret-right"
+                (click)="rightArrow()"
+            ></i>
+        </div>
+        <div class="options">
+            <div>
+                <a class="btn" routerLink="/detail/{{ localPokemon.id }}">{{
+                    'buttons.details' | translate
+                }}</a>
+            </div>
+            <div>
+                <a
+                    href="#"
+                    class="btn"
+                    routerLink="/map/{{ localPokemon.id }}"
+                    >{{ 'buttons.locate' | translate }}</a
+                >
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<app-pokedex-list
+    [pokemonList]="pokemonList"
+    [pokemonSelected]="pokemonSelected"
+    (choosePokemonEvent)="pokemonSelect($event)"
+    (chooseTypeEvent)="typeSelect($event)"
+></app-pokedex-list>

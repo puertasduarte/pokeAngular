@@ -1,0 +1,26 @@
+<div class="pokedex">
+    <div class="pokedex__display">
+        <div class="pokemon" *ngIf="pokemonSelected !== undefined">
+            <div class="pokemon--name">
+                {{
+                    pokemonSelected.name.charAt(0).toUpperCase() +
+                        pokemonSelected.name.slice(1)
+                }}
+            </div>
+            <div class="pokemon--img">
+                <img src="{{ pokemonSelected.sprites.front_default }}" alt="" />
+            </div>
+        </div>
+        <div class="map">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div class="buttons">
+        <a class="btn__back" routerLink="/list">{{
+            'buttons.exit' | translate
+        }}</a>
+        <div class="btn" routerLink="/detail/{{ pokemonId }}">
+            {{ 'buttons.details' | translate }}
+        </div>
+    </div>
+</div>

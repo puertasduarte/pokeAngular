@@ -1,0 +1,31 @@
+@import '../../../../variables.scss';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 800;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__bakcground {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        opacity: 0.7;
+    }
+}
+
+hr {
+    border-top: 3px solid white;
+}
+.modal {
+    z-index: 999;
+    background-color: $primary-backgroundColor;
+    box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+}

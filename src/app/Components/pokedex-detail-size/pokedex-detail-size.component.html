@@ -1,0 +1,50 @@
+<div class="display">
+    <div class="header">
+        <div class="header__title" (click)="changeDisplaySize()">
+            <span class="collapse-icon">
+                <i
+                    *ngIf="!displaySize"
+                    class="fa fa-expand"
+                    aria-hidden="true"
+                ></i>
+                <i
+                    *ngIf="displaySize"
+                    class="fa fa-compress"
+                    aria-hidden="true"
+                ></i>
+            </span>
+            <span>{{ 'details.size' | translate }}</span>
+        </div>
+    </div>
+    <div [ngClass]="{ hideSize: !displaySize }">
+        <div class="container">
+            <div class="size-display">
+                <div class="elem-container">
+                    <div
+                        id="pokemon-canvas-container"
+                        class="elem-image-container"
+                    ></div>
+                    <div class="elem-height">{{ pokemonHeight / 10 }} m</div>
+                </div>
+                <div class="elem-container">
+                    <div
+                        id="pokemon-canvas-container"
+                        class="elem-image-container"
+                    >
+                        <img
+                            id="trainer-img"
+                            src="assets/img/trainer.png"
+                            class="elem-image"
+                        />
+                    </div>
+                    <div
+                        class="elem-height"
+                        *ngIf="pokemonHeight !== undefined"
+                    >
+                        1.7 m
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

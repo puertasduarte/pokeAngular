@@ -1,0 +1,154 @@
+@import '../../../variables.scss';
+
+hr {
+    border: 0;
+    border-top: 3px solid #358496;
+    margin: 5px 0px 5px 0px;
+}
+.display {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    left: 0;
+    width: 100%;
+    margin: 5px 0px 5px 0px;
+    justify-content: center;
+    &__title {
+        padding: 5px;
+        width: 100%;
+        height: 18%;
+        background-color: $borderColor;
+        color: $primary-textColor;
+        box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.2);
+        font-size: 2.7rem;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    .collapse-icon {
+        margin-right: 1%;
+    }
+}
+.move_head {
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    color: $primary-textColor;
+    font-size: 2.3rem;
+}
+.moves-header {
+    background-color: $secondary-backgroundColor;
+    z-index: 10;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding-bottom: 0.6rem;
+    width: 101%;
+    @media only screen and (max-width: 800px) {
+        width: 104%;
+    }
+}
+.moves-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hideMoves {
+    display: none;
+}
+.row-title {
+    color: #2d6e7c;
+}
+.movement {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: $borderColor;
+    font-size: 1.9rem;
+    animation-name: dropdownDetails;
+    animation-duration: 0.3s;
+    &__row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        &:hover {
+            background-color: #4490a1;
+        }
+    }
+    &__property {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        text-align: center;
+        padding: 5px;
+        width: 100%;
+        &--name {
+            flex-grow: 6;
+            margin: 0.5rem;
+            color: $borderColor;
+            background-color: #5ca6b7;
+            box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.2);
+        }
+        img {
+            margin-right: 5px;
+            width: 25%;
+        }
+        @media only screen and (max-width: 800px) {
+            width: 50%;
+            img {
+                width: 50%;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            width: 25%;
+            img {
+                width: 70%;
+            }
+        }
+    }
+}
+.row-container {
+    background-color: $tertiary-backgroundColor;
+    box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    width: 100%;
+    margin: 0.5rem 0 0.5rem 0;
+    z-index: 2;
+}
+.movement__extra-row {
+    width: 98%;
+    margin-left: 2%;
+    margin-top: -0.75rem;
+    background-color: #5ca6b7;
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    animation-name: dropdownDetails;
+    animation-duration: 0.3s;
+}
+.selected-row {
+    background-color: #4490a1;
+}
+
+@media only screen and (max-width: 600px) {
+    .optional {
+        display: none;
+    }
+}
+
+@keyframes dropdownDetails {
+    from {
+        animation-timing-function: ease-out;
+        transform: translateY(-30px);
+    }
+    to {
+        animation-timing-function: ease-in;
+        transform: translateY(0px);
+    }
+}

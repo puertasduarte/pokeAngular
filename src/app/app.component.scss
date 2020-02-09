@@ -1,0 +1,21 @@
+body {
+    // background-image: url('../assets/img/pokePattern.jpg');
+    // background-repeat: repeat-y-x;
+    background-color: #81c8d8;
+    background-image: linear-gradient(#81c8d8, #4f8e9c);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (max-width: 800px) {
+        height: auto;
+        flex-direction: column-reverse;
+    }
+}
+
+.pokedex-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

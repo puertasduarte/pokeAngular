@@ -1,0 +1,85 @@
+{
+    "loading": {
+        "list": "Cargando Pokédex...",
+        "details": "Cargando Detalles...",
+        "pokeworld": "Cargando Mundo Pokémon...",
+        "top": "Cargando Ranking Pokémon..."
+    },
+    "buttons": {
+        "details": "Detalles",
+        "locate": "Localizar",
+        "exit": "Salir",
+        "search": "Buscar",
+        "searchph": "Buscar Pokémon"
+    },
+    "statistics": {
+        "hp": "PS",
+        "attack": "Ataque",
+        "defense": "Defensa",
+        "special-attack": "Ataque Especial",
+        "special-defense": "Defensa Especial",
+        "speed": "Velocidad"
+    },
+    "list": {
+        "types": {
+            "all": "Todos",
+            "normal": "Normal",
+            "fighting": "Lucha",
+            "flying": "Vuelo",
+            "poison": "Veneno",
+            "ground": "Tierra",
+            "rock": "Roca",
+            "bug": "Bicho",
+            "steel": "Acero",
+            "fire": "Fuego",
+            "water": "Agua",
+            "grass": "Hierba",
+            "electric": "Eléctrico",
+            "psychic": "Psíquico",
+            "ghost": "Fantasma",
+            "ice": "Hielo",
+            "dark": "Oscuro",
+            "fairy": "Hada"
+        }
+    },
+    "nav": {
+        "pokedex": "Pokédex",
+        "pokeworld": "Mundo Pokémon",
+        "top": "Ranking",
+        "lang": "Leng.",
+        "about": "Info.",
+        "language": {
+            "en": "Inglés",
+            "es": "Español",
+            "ja": "Japonés"
+        }
+    },
+    "details": {
+        "description": "Descripción",
+        "stats": "Estadísticas",
+        "evolutionchain": "Cadena de Evolución",
+        "noevolution": "Este Pokémon no tiene evolución.",
+        "abilities": "Habilidades",
+        "size": "Tamaño del Pokémon",
+        "movements": "Movimientos del Pokémon",
+        "moves": {
+            "name": "Nombre",
+            "power": "Poder",
+            "accuarcy": "Precisión",
+            "pp": "PP",
+            "type": "Tipo",
+            "description": "Descripción",
+            "learnby": "Aprendido mediante",
+            "atlevel": "en el nivel"
+        }
+    },
+    "top": {
+        "speed": "Velocidad",
+        "sdefense": "Def. Esp.",
+        "sattack": "At. Esp.",
+        "defense": "Defensa",
+        "attack": "Ataque",
+        "hp": "PV",
+        "average": "Media"
+    }
+}

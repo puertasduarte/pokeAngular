@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="modal" [style.height]="inputHeight" [style.width]="inputWidth">
+        <app-modal-header
+            [dataHeader]="dataHeader"
+            (closeModalEvent)="closeModal()"
+        >
+        </app-modal-header>
+        <app-modal-body [dataBody]="dataBody"> </app-modal-body>
+        <app-modal-footer (closeModalEvent)="closeModal()"> </app-modal-footer>
+    </div>
+    <div class="container__bakcground" (click)="closeModal()"></div>
+</div>

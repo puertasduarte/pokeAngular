@@ -1,0 +1,177 @@
+@import '../../../variables.scss';
+
+.nav {
+    background-color: $primary-backgroundColor;
+    height: 80px;
+    box-shadow: 0 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.elements-left {
+    height: 100%;
+    display: flex;
+    @media only screen and (max-width: 800px) {
+        width: 75%;
+    }
+}
+
+.elements-right {
+    height: 100%;
+    margin-left: auto;
+    margin-right: 1rem;
+    display: flex;
+    @media only screen and (max-width: 800px) {
+        width: 25%;
+    }
+}
+
+.logo-link {
+    height: 80%;
+    width: auto;
+    margin: 5px 2rem;
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+}
+
+.title {
+    color: white;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    text-shadow: -2px 0 $title-shadowColor, 0 2px $title-shadowColor,
+        2px 0 $title-shadowColor, 0 -2px $title-shadowColor;
+    font-size: 28px;
+    margin: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
+    cursor: default;
+
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
+}
+
+.option {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    padding: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+    }
+
+    @media only screen and (max-width: 320px) {
+        margin: 0;
+    }
+
+    &:hover {
+        background-color: rgb(247, 97, 97);
+        cursor: pointer;
+    }
+
+    &__selected {
+        background-color: rgb(247, 97, 97);
+    }
+
+    &--noMargins {
+        color: white;
+        font-size: 18px;
+        padding: 0 10px 0 10px;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        &:hover {
+            background-color: rgb(247, 97, 97);
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 800px) {
+            text-align: center;
+            justify-content: center;
+            width: 33.3%;
+        }
+    }
+}
+
+.showOnMobile {
+    display: none;
+    @media only screen and (max-width: 600px) {
+        display: flex;
+        justify-content: center;
+        width: 33.3%;
+    }
+}
+
+.lang-container {
+    cursor: default;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: -12rem;
+    right: 0;
+    height: 12rem;
+    width: 10rem;
+    background-color: rgb(247, 97, 97);
+    box-shadow: -0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    @media only screen and (max-width: 800px) {
+        bottom: 0;
+        top: -12rem;
+        box-shadow: -0.5rem -0.5rem rgba(0, 0, 0, 0.2);
+    }
+}
+
+.lang {
+    width: 85%;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    display: flex;
+    background-color: #ea4747;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.2);
+    &--title {
+        color: $secondary-textColor;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+    &--name {
+        font-weight: normal;
+        color: $secondary-textColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+    &__selected {
+        background-color: $secondary-backgroundColor;
+    }
+}
+
+.arrow {
+    z-index: 1;
+    position: absolute;
+    font-size: 10rem;
+    top: -72px;
+    left: 120px;
+    color: white;
+    &:hover {
+        cursor: pointer;
+    }
+}

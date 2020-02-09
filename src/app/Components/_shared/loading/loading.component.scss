@@ -1,0 +1,119 @@
+@import '../../../../variables.scss';
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: loading 1s infinite;
+}
+
+.ball {
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    border: 0.2rem solid #1d1d1b;
+    box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    animation: loading-ball 1s infinite;
+    z-index: 100;
+    display: block;
+    margin: auto;
+    position: absolute;
+}
+
+.half-ball {
+    margin: auto;
+    z-index: 0;
+    position: absolute;
+    bottom: -2.3rem;
+    background-color: white;
+    border-radius: 0 0 90px 90px;
+    width: 5rem;
+    height: 2.5rem;
+}
+
+.half-ball-top {
+    margin: auto;
+    z-index: 0;
+    position: absolute;
+    top: -2.3rem;
+    background-color: $primary-backgroundColor;
+    border-radius: 90px 90px 0 0;
+    width: 5rem;
+    height: 2.5rem;
+}
+
+.horizon {
+    position: absolute;
+    margin: auto;
+    margin-top: auto;
+    border-radius: 0px;
+    width: 5rem;
+    height: 0.5rem;
+    background-color: #1d1d1b;
+    z-index: 3;
+}
+
+.big-button {
+    z-index: 4;
+    margin: auto;
+    border-radius: 50%;
+    border: 0.2rem solid #1d1d1b;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+}
+
+.small-button {
+    z-index: 5;
+    margin: auto;
+    border-radius: 50%;
+    border: 0.1rem solid #1d1d1b;
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: white;
+}
+
+@keyframes loading {
+    0% {
+        transform: translate(0, 0) rotate(0);
+    }
+    25% {
+        transform: translate(-0.9rem, 0) rotate(-18deg);
+    }
+    33% {
+        transform: translate(0.9rem, 0) rotate(18deg);
+    }
+    50% {
+        transform: translate(-0.9rem, 0) rotate(-12deg);
+    }
+    60% {
+        transform: translate(0.9rem, 0) rotate(18deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+
+@keyframes loading-ball {
+    0% {
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    }
+    25% {
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    }
+    33% {
+        box-shadow: -0.2rem 0.7rem 0rem rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    }
+    60% {
+        box-shadow: -0.2rem 0.7rem 0rem rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    }
+}

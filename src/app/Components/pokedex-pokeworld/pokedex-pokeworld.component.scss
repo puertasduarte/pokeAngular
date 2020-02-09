@@ -1,0 +1,168 @@
+@import '../../../variables.scss';
+
+.pokedex {
+    position: relative;
+    justify-content: center;
+    padding-bottom: 3rem;
+
+    @media only screen and (max-width: 800px) {
+        width: 100vw;
+    }
+
+    &__display {
+        height: 90%;
+        background-color: $secondary-backgroundColor;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+
+    &__top {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @media only screen and (max-width: 800px) {
+            width: 80%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+
+        @media only screen and (min-width: 1024px) {
+            margin-left: 1rem;
+        }
+
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+            width: 80%;
+            height: 50%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 450px) {
+            height: 70%;
+        }
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @media only screen and (max-width: 375px) {
+        margin-bottom: 2rem;
+        flex-direction: column;
+    }
+
+    &__select {
+        font-size: 2rem;
+        color: $gray-textColor;
+        background-color: $quaternary-backgroundColor;
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+        border: none;
+        padding: 1rem 2rem;
+        width: 30%;
+        margin-right: 1rem;
+
+        @media only screen and (max-width: 375px) {
+            display: none;
+        }
+    }
+    &__input-parent {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    &__input {
+        font-size: 2rem;
+        color: $gray-textColor;
+        background-color: $quaternary-backgroundColor;
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+        border: none;
+        padding: 1rem 2rem;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $gray-textColor;
+        }
+    }
+
+    &__button {
+        border: none;
+        background-color: $quaternary-backgroundColor;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.map {
+    box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    height: 90%;
+    width: 95%;
+    @media only screen and (max-width: 800px) {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+#map {
+    height: 100%;
+}
+
+.inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90%;
+
+    @media only screen and (max-width: 375px), (min-height: 900px) {
+        height: 80%;
+    }
+}
+
+.btn {
+    position: absolute;
+    right: 1rem;
+    margin: 0;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.2);
+
+    @media only screen and (max-width: 1030px) {
+        line-height: 1;
+    }
+
+    @media only screen and (max-width: 768px) {
+        line-height: 1;
+    }
+}
+
+.popup-link {
+    cursor: pointer;
+}

@@ -1,0 +1,114 @@
+<div
+    *ngIf="pokeMovesList !== undefined && pokeMovesList.length > 0"
+    class="display"
+>
+    <div class="header">
+        <div class="header__title" (click)="changeDisplayMoves()">
+            <span class="collapse-icon">
+                <i
+                    *ngIf="!displayMoves"
+                    class="fa fa-expand"
+                    aria-hidden="true"
+                ></i>
+                <i
+                    *ngIf="displayMoves"
+                    class="fa fa-compress"
+                    aria-hidden="true"
+                ></i>
+            </span>
+            <span>{{ 'details.movements' | translate }}</span>
+        </div>
+    </div>
+    <div [ngClass]="{ hideMoves: !displayMoves }" class="moves-container">
+        <div class="moves-header">
+            <div class="move_head">
+                <div class="movement__property">
+                    {{ 'details.moves.name' | translate }}
+                </div>
+                <div class="movement__property">
+                    {{ 'details.moves.power' | translate }}
+                </div>
+                <div class="movement__property optional">
+                    {{ 'details.moves.accuarcy' | translate }}
+                </div>
+                <div class="movement__property optional">
+                    {{ 'details.moves.pp' | translate }}
+                </div>
+                <div class="movement__property">
+                    {{ 'details.moves.type' | translate }}
+                </div>
+            </div>
+            <hr />
+        </div>
+        <div
+            class="movement collapsible"
+            *ngFor="let move of pokeMovesList; let index = index"
+        >
+            <div class="row-container">
+                <div
+                    class="movement__row"
+                    [class.selected-row]="visibleIndex === index"
+                    (click)="showDescription(index)"
+                    id="{{ index }}"
+                >
+                    <div
+                        class="movement__property movement__property--name row-title"
+                    >
+                        {{ prettyString(move.name) }}
+                    </div>
+                    <div *ngIf="move.power" class="movement__property">
+                        {{ move.power }}
+                    </div>
+                    <div *ngIf="!move.power" class="movement__property">-</div>
+                    <div
+                        *ngIf="move.accuracy"
+                        class="movement__property optional"
+                    >
+                        {{ move.accuracy }}
+                    </div>
+                    <div
+                        *ngIf="!move.accuracy"
+                        class="movement__property optional"
+                    >
+                        -
+                    </div>
+                    <div class="movement__property optional">{{ move.pp }}</div>
+                    <div class="movement__property">
+                        <img
+                            src="assets/img/types_icons_2/{{
+                                move.type1
+                            }}_icon.png"
+                            alt="{{ move.type1 }}"
+                        />
+                        <img
+                            src="assets/img/types_icons_2/{{ move.type2 }}.png"
+                            alt="{{ move.type2 }}"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="movement__extra-row" *ngIf="visibleIndex === index">
+                <div class="description-row">
+                    <span class="row-title"
+                        >{{ 'details.moves.description' | translate }}:
+                    </span>
+                    <span>{{ move.description }}</span>
+                </div>
+                <div class="learninfo-row">
+                    <div *ngIf="arr[index]">
+                        <span class="row-title"
+                            >{{ 'details.moves.learnby' | translate }}
+                        </span>
+                        {{ arr[index].name }}
+                        <span *ngIf="arr[index].level !== 0">
+                            <span class="row-title">{{
+                                'details.moves.atlevel' | translate
+                            }}</span>
+                            {{ arr[index].level }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

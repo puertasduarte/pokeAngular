@@ -1,0 +1,85 @@
+{
+    "loading": {
+        "list": "ポケデックスの読み込み...",
+        "details": "読み込みの詳細...",
+        "pokeworld": "ポケモンの世界の読み込み...",
+        "top": "トップポケモンの読み込み..."
+    },
+    "buttons": {
+        "details": "詳細",
+        "locate": "見つける",
+        "exit": "出口",
+        "search": "探す",
+        "searchph": "ポケモンを検索"
+    },
+    "statistics": {
+        "hp": "HP",
+        "attack": "こうげき",
+        "defense": "ぼうぎょ",
+        "special-attack": "とくこう",
+        "special-defense": "とくぼう",
+        "speed": "すばやさ"
+    },
+    "list": {
+        "types": {
+            "all": "すべて",
+            "normal": "正常",
+            "fighting": "ファイティング",
+            "flying": "飛行",
+            "poison": "毒",
+            "ground": "接地",
+            "rock": "岩",
+            "bug": "バグ",
+            "steel": "鋼",
+            "fire": "火",
+            "water": "水",
+            "grass": "草",
+            "electric": "電気の",
+            "psychic": "超能力のある",
+            "ghost": "幽霊",
+            "ice": "氷",
+            "dark": "闇",
+            "fairy": "妖精"
+        }
+    },
+    "nav": {
+        "pokedex": "ポケデックス",
+        "pokeworld": "ポケモンの世界",
+        "top": "トップポケモン",
+        "lang": "言語",
+        "about": "私たちに関しては",
+        "language": {
+            "en": "英語",
+            "es": "スペイン語",
+            "ja": "日本語"
+        }
+    },
+    "details": {
+        "description": "説明",
+        "stats": "統計",
+        "evolutionchain": "進化の鎖",
+        "noevolution": "このポケモンには進化がありません。",
+        "abilities": "能力",
+        "size": "ポケモンサイズ",
+        "movements": "ポケモンの動き",
+        "moves": {
+            "name": "名前",
+            "power": "パワー",
+            "accuarcy": "正確さ",
+            "pp": "パイ",
+            "type": "タイプ",
+            "description": "説明",
+            "learnby": "学ぶ",
+            "atlevel": "レベルで"
+        }
+    },
+    "top": {
+        "speed": "速度",
+        "sdefense": "特別防衛",
+        "sattack": "特殊攻撃",
+        "defense": "防衛",
+        "attack": "攻撃",
+        "hp": "馬力",
+        "average": "平均"
+    }
+}

@@ -1,0 +1,238 @@
+<div class="pokedex">
+    <!-- <div class="loading-container" *ngIf="!isLoaded">
+        <app-loading></app-loading>
+        <div class="loading-text">{{ 'loading.details' | translate }}</div>
+    </div> -->
+    <div class="pokedex__display">
+        <div
+            *ngIf="
+                evolutionChain !== undefined && pokemonSelected !== undefined
+            "
+            class="pokedex__display__content"
+        >
+            <div class="details">
+                <div *ngIf="pokemonSelected !== undefined" class="info-panel">
+                    <div class="general-info">
+                        <div class="general-info__header">
+                            <div class="general-info__header--number">
+                                N. {{ pokemonSelected.id }}
+                            </div>
+                            <div class="general-info__header--name">
+                                {{
+                                    pokemonSelected.name
+                                        .charAt(0)
+                                        .toUpperCase() +
+                                        pokemonSelected.name.slice(1)
+                                }}
+                            </div>
+                            <div class="pokemon-types">
+                                <div>
+                                    <img
+                                        src="assets/img/types_icons_2/{{
+                                            pokemonSelected.types[0].type.name
+                                        }}_icon.png"
+                                        alt="{{
+                                            pokemonSelected.types[0].type.name
+                                        }}"
+                                    />
+                                </div>
+                                <div *ngIf="pokemonSelected.types[1]">
+                                    <img
+                                        src="assets/img/types_icons_2/{{
+                                            pokemonSelected.types[1].type.name
+                                        }}_icon.png"
+                                        alt="{{
+                                            pokemonSelected.types[1].type.name
+                                        }}"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="general-info__image-container">
+                            <i
+                                class="fas fa-sync-alt turn-icon pointer"
+                                (click)="switchBack()"
+                            ></i>
+                            <i
+                                class="fas fa-star shiny-icon pointer"
+                                (click)="switchShiny()"
+                            ></i>
+                            <img
+                                [class.general-info__image--start-flip]="
+                                    startFlip
+                                "
+                                [class.general-info__image--end-flip]="endFlip"
+                                src="{{ currentSelectPokemonImage }}"
+                                alt="Pokemon image"
+                                class="general-info__image shadowed"
+                            />
+                        </div>
+                        <div class="general-info__dimension">
+                            <div class="general-info__dimension--element">
+                                <p>{{ pokemonSelected.height / 10 }} m</p>
+                            </div>
+                            <div class="general-info__dimension--element">
+                                <p>{{ pokemonSelected.weight / 10 }} Kg</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="specific-info">
+                        <div class="pokemon-description">
+                            <div class="detail-title-panel">
+                                <span
+                                    >{{
+                                        'details.description' | translate
+                                    }}:</span
+                                >
+                            </div>
+                            <div class="detail-panel">
+                                {{ pokemonSelected.description }}
+                            </div>
+                        </div>
+                        <div class="pokemon-evolution">
+                            <div class="detail-title-panel">
+                                <span
+                                    >{{
+                                        'details.evolutionchain' | translate
+                                    }}:</span
+                                >
+                            </div>
+                            <div
+                                *ngIf="evolutionChain !== undefined"
+                                class="detail-panel__evolution"
+                            >
+                                <div *ngIf="evolutionChain.length < 2">
+                                    {{ 'details.noevolution' | translate }}
+                                </div>
+                                <div
+                                    *ngIf="evolutionChain.length > 1"
+                                    class="detail-panel__evolution__content"
+                                >
+                                    <i
+                                        class="arrow fas fa-caret-left"
+                                        (click)="pokemonEvolveLeft()"
+                                        [class.arrow--disabled]="canLeft()"
+                                    ></i>
+                                    <img
+                                        src="{{ pokemonEvolveImage }}"
+                                        (click)="cleanPokemonData(true, index)"
+                                        routerLink="/detail/{{
+                                            evolutionChain[index].id
+                                        }}"
+                                    />
+                                    <i
+                                        class="arrow fas fa-caret-right"
+                                        (click)="pokemonEvolveRight()"
+                                        [class.arrow--disabled]="canRight()"
+                                    ></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tecnic-info">
+                        <div class="tecnic-info__stats">
+                            <div class="detail-title-panel">
+                                {{ 'details.stats' | translate }}:
+                            </div>
+                            <div class="detail-panel__stats">
+                                <div
+                                    *ngFor="
+                                        let stat of pokemonSelected.stats
+                                            .slice()
+                                            .reverse()
+                                    "
+                                >
+                                    {{ 'statistics.' + stat.name | translate }}
+                                    <hr
+                                        *ngIf="stat.baseStat <= 35"
+                                        class="progressBar progressBar--red"
+                                        [ngStyle]="{
+                                            width: getPercentage(stat.baseStat)
+                                        }"
+                                    />
+                                    <hr
+                                        *ngIf="
+                                            stat.baseStat > 35 &&
+                                            stat.baseStat < 70
+                                        "
+                                        class="progressBar progressBar--yellow"
+                                        [ngStyle]="{
+                                            width: getPercentage(stat.baseStat)
+                                        }"
+                                    />
+                                    <hr
+                                        *ngIf="stat.baseStat >= 70"
+                                        class="progressBar progressBar--green"
+                                        [ngStyle]="{
+                                            width: getPercentage(stat.baseStat)
+                                        }"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tecnic-info__abilities">
+                            <div class="detail-title-panel">
+                                {{ 'details.abilities' | translate }}:
+                            </div>
+                            <div class="detail-panel__abilities">
+                                <div
+                                    *ngFor="
+                                        let ability of pokemonSelected.abilities
+                                            .slice()
+                                            .reverse()
+                                    "
+                                >
+                                    <div
+                                        *ngIf="ability.isHidden === false"
+                                        class="abilityType"
+                                    >
+                                        {{ ability.name | uppercase }}
+                                    </div>
+                                    <div
+                                        *ngIf="ability.isHidden === true"
+                                        class="abilityType abilityType--hidden"
+                                    >
+                                        {{ ability.name | uppercase }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="extra-option">
+                    <app-pokedex-detail-size
+                        [pokemonSelectedId]="pokemonSelectedId"
+                    >
+                    </app-pokedex-detail-size>
+                </div>
+                <div class="extra-option">
+                    <app-pokedex-detail-extend
+                        [pokemonSelectedId]="pokemonSelectedId"
+                        (movesLoadedEvent)="movesHasLoaded()"
+                    >
+                    </app-pokedex-detail-extend>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons" *ngIf="pokemonSelected !== undefined">
+        <a class="btn__back" routerLink="/list">{{
+            'buttons.exit' | translate
+        }}</a>
+        <div class="buttons">
+            <i
+                class="arrow fas fa-caret-left"
+                (click)="cleanPokemonData()"
+                routerLink="/detail/{{ pokemonSelected.id - 1 }}"
+            ></i>
+            <a class="btn" routerLink="/map/{{ pokemonSelected.id }}">{{
+                'buttons.locate' | translate
+            }}</a>
+            <i
+                class="arrow fas fa-caret-right"
+                (click)="cleanPokemonData()"
+                routerLink="/detail/{{ pokemonSelected.id + 1 }}"
+            ></i>
+        </div>
+    </div>
+</div>

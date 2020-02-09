@@ -1,0 +1,134 @@
+@import '../../../variables.scss';
+
+.pokedex {
+    &__display {
+        height: 90%;
+        background-color: $secondary-backgroundColor;
+        border: 1.3rem solid $borderColor;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        z-index: 1;
+
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+            width: 90%;
+        }
+    }
+    @media only screen and (max-width: 800px) {
+        justify-content: center;
+        width: 60rem;
+        padding: 3rem 0 0 0;
+    }
+
+    @media only screen and (max-width: 600px) {
+        width: 100vw;
+        justify-content: space-around;
+    }
+
+    @media only screen and (max-width: 375px) {
+        width: 100vw;
+        padding-bottom: 0;
+    }
+}
+
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 90%;
+    width: 30%;
+    img {
+        max-width: 100%;
+    }
+    &--name {
+        width: 85%;
+        height: 18%;
+        background-color: $button-backgroundColor;
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+        color: $primary-textColor;
+        font-size: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media only screen and (max-width: 800px) {
+            height: 50%;
+            font-size: 2.5rem;
+        }
+
+        @media only screen and (max-width: 375px) {
+            font-size: 2rem;
+        }
+    }
+    &--img {
+        width: 85%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $tertiary-backgroundColor;
+        box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+        img {
+            width: 100%;
+            -webkit-filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.5));
+        }
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+    }
+}
+
+.map {
+    box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+    margin: 0px 15px;
+    height: 90%;
+    width: 70%;
+    @media only screen and (max-width: 800px) {
+        width: 90%;
+        height: 350%;
+        margin-bottom: 20px;
+    }
+}
+
+#map {
+    height: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1.5rem;
+    @media only screen and (max-width: 800px) {
+        justify-content: center;
+    }
+}
+
+.btn {
+    @media only screen and (max-width: 1030px) {
+        padding: 1rem 3rem;
+        font-size: 2.5rem;
+        margin: 1rem;
+        box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+        line-height: 1;
+    }
+    &__back {
+        @media only screen and (max-width: 1030px) {
+            padding: 1rem 3rem;
+            font-size: 2.5rem;
+            margin: 1rem;
+            box-shadow: -0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+            line-height: 1;
+        }
+    }
+}
+
+.arrow {
+    font-size: 8rem;
+}

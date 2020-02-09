@@ -1,0 +1,71 @@
+<div class="pokedex">
+    <div class="loading-container" *ngIf="!isLoaded">
+        <app-loading></app-loading>
+        <div class="loading-text">{{ 'loading.top' | translate }}</div>
+    </div>
+    <div class="pokedex__top">
+        <div class="buttons">
+            <a
+                *ngFor="let stat of statsButtons; index as i"
+                id="{{ i }}"
+                class="btn"
+                (click)="selectStat(i)"
+                [class.btn--selectedStat]="i == selectedStat"
+            >
+                {{ 'top.' + stat | translate }}
+            </a>
+        </div>
+    </div>
+    <div class="pokedex__display">
+        <div class="pokemons-container" *ngIf="topArr.length > 0">
+            <div class="pokemons">
+                <div
+                    class="pokemon"
+                    *ngFor="let poke of topArr[selectedStat]; index as i"
+                >
+                    <div class="pokemon__number">
+                        {{ i + 1 }}
+                    </div>
+                    <div class="pokemon__name">
+                        {{
+                            poke.name.charAt(0).toUpperCase() +
+                                poke.name.slice(1)
+                        }}
+                    </div>
+                    <div
+                        class="pokemon__image"
+                        routerLink="/detail/{{ poke.id }}"
+                    >
+                        <img src="{{ poke.image }}" alt="pokemonImage" />
+                    </div>
+                    <div class="pokemon__stats" *ngIf="poke !== undefined">
+                        <div *ngFor="let stat of poke.stats.slice().reverse()">
+                            {{ 'statistics.' + stat.name | translate }}
+                            <hr
+                                *ngIf="stat.baseStat <= 35"
+                                class="progressBar progressBar--red"
+                                [ngStyle]="{
+                                    width: getPercentage(stat.baseStat)
+                                }"
+                            />
+                            <hr
+                                *ngIf="stat.baseStat > 35 && stat.baseStat < 70"
+                                class="progressBar progressBar--yellow"
+                                [ngStyle]="{
+                                    width: getPercentage(stat.baseStat)
+                                }"
+                            />
+                            <hr
+                                *ngIf="stat.baseStat >= 70"
+                                class="progressBar progressBar--green"
+                                [ngStyle]="{
+                                    width: getPercentage(stat.baseStat)
+                                }"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

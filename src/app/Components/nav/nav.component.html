@@ -1,0 +1,58 @@
+<div class="nav">
+    <div class="elements-left">
+        <a class="logo-link" routerLink="/list">
+            <img src="assets/img/Logo.png" class="logo" alt="Pokemon logo" />
+        </a>
+        <div class="option--noMargins" routerLink="/list">
+            {{ 'nav.pokedex' | translate }}
+        </div>
+        <div class="option--noMargins" routerLink="/pokeworld">
+            {{ 'nav.pokeworld' | translate }}
+        </div>
+        <div class="option--noMargins" routerLink="/top">
+            {{ 'nav.top' | translate }}
+        </div>
+    </div>
+    <div class="elements-right">
+        <div class="title">PokéAngular</div>
+        <div
+            class="option"
+            (click)="clickLangButton()"
+            [class.option__selected]="showLang"
+        >
+            {{ 'nav.lang' | translate }}
+            <div class="lang-container" *ngIf="showLang">
+                <div
+                    class="lang"
+                    (click)="changeLang('en')"
+                    [class.lang__selected]="selectedLang == 'en'"
+                >
+                    {{ 'nav.language.en' | translate }}
+                </div>
+                <div
+                    class="lang"
+                    (click)="changeLang('es')"
+                    [class.lang__selected]="selectedLang == 'es'"
+                >
+                    {{ 'nav.language.es' | translate }}
+                </div>
+                <div
+                    class="lang"
+                    (click)="changeLang('ja')"
+                    [class.lang__selected]="selectedLang == 'ja'"
+                >
+                    {{ 'nav.language.ja' | translate }}
+                </div>
+            </div>
+        </div>
+        <div class="option" (click)="showModal()">
+            {{ 'nav.about' | translate }}
+        </div>
+    </div>
+</div>
+<app-modal
+    *ngIf="displayModal"
+    [content]="content"
+    (closeModalEvent)="hideModal()"
+>
+</app-modal>

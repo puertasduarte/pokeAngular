@@ -1,0 +1,361 @@
+@import '../../../variables.scss';
+
+.pokedex {
+    position: relative;
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+        width: 100vw;
+        padding-bottom: 0;
+        height: calc(100vh - 80px);
+    }
+    &__display {
+        overflow: auto;
+    }
+}
+
+.detail-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 2.5%;
+    max-height: 74%;
+    font-size: 1.5rem;
+    color: $quaternary-backgroundColor;
+    background: $tertiary-backgroundColor;
+    box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+    @media only screen and (max-width: 800px) {
+        max-height: 100%;
+    }
+    &__evolution {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 74%;
+        font-size: 1.5rem;
+        color: $quaternary-backgroundColor;
+        background: $tertiary-backgroundColor;
+        box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+        align-items: center;
+        @media only screen and (max-width: 800px) {
+            height: auto;
+        }
+        &__content {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            -webkit-filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.5));
+            height: 110%;
+            width: auto;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .arrow {
+            font-size: 5rem;
+            text-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.2);
+            &--disabled {
+                color: #6ba2af;
+                text-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.1);
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+    }
+    &__stats {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        padding: 2.5%;
+        max-height: 100%;
+        font-size: 1.5rem;
+        color: $quaternary-backgroundColor;
+        background: $tertiary-backgroundColor;
+        box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+    }
+    &__abilities {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        padding: 2.5%;
+        max-height: 63%;
+        font-size: 1.5rem;
+        color: $quaternary-backgroundColor;
+        background: $tertiary-backgroundColor;
+        box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+        @media only screen and (max-width: 800px) {
+            max-height: 100%;
+        }
+    }
+}
+.detail-title-panel {
+    font-size: 3rem;
+    color: $primary-textColor;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2%;
+    width: 100%;
+    height: 100%;
+    @media only screen and (max-width: 375px) {
+        padding: 0% 5% 0 5%;
+    }
+}
+
+.section-separation {
+    border: 0;
+    border-top: 3px solid $tertiary-backgroundColor;
+    margin: 3rem 0% 3rem 0%;
+    margin-left: 2%;
+}
+
+/*
+    INFO PANEL
+ */
+.info-panel {
+    display: flex;
+    margin-bottom: 0;
+    height: 100%;
+    @media only screen and (max-width: 375px) {
+        margin-bottom: 1rem;
+        height: 300%;
+        flex-direction: column;
+    }
+}
+
+.general-info {
+    width: 100%;
+    height: 100%;
+    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5%;
+    &__header {
+        margin-bottom: 4%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 30%;
+        width: 90%;
+        &--number {
+            font-size: 2rem;
+            color: $primary-textColor;
+        }
+        &--name {
+            background-color: $button-backgroundColor;
+            color: $primary-textColor;
+            box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.2);
+            padding: 0 1rem;
+            font-size: 3rem;
+        }
+        @media only screen and (max-width: 800px) {
+            margin-bottom: 3%;
+        }
+    }
+    &__image-container {
+        position: relative;
+        width: 60%;
+        height: 46%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $tertiary-backgroundColor;
+        box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+    }
+    &__image {
+        width: 100%;
+        transform: rotateY(0);
+        transition: transform 0.2s;
+        &--start-flip {
+            transition-timing-function: ease-in;
+            transform: rotateY(90deg);
+        }
+        &--end-flip {
+            transition-timing-function: ease-out;
+            transform: rotateY(90deg);
+        }
+    }
+    &__dimension {
+        width: 80%;
+        height: 10%;
+        margin-top: 6%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        div {
+            padding: 3% 6% 3% 6%;
+            font-size: 2rem;
+            color: $quaternary-backgroundColor;
+        }
+        &--element {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 40%;
+            background: $tertiary-backgroundColor;
+            box-shadow: -0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.5);
+            p {
+                font-size: 1.6rem;
+            }
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        margin-right: 0%;
+    }
+}
+.pokemon-types {
+    width: 40%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img {
+        width: 100%;
+        -webkit-filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
+    }
+}
+.pokemon-description {
+    height: 50%;
+    width: 100%;
+    @media only screen and (max-width: 800px) {
+        height: auto;
+    }
+}
+.pokemon-evolution {
+    height: 50%;
+    width: 100%;
+    @media only screen and (max-width: 800px) {
+        height: auto;
+        margin-top: 1rem;
+    }
+}
+.specific-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5%;
+    &__description {
+        height: 50%;
+    }
+    &__evolution {
+        height: 50%;
+    }
+    @media only screen and (max-width: 375px) {
+        margin-bottom: 2%;
+    }
+}
+.tecnic-info {
+    width: 100%;
+    height: 100%;
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1.5%;
+    &__stats {
+        width: 100%;
+    }
+    &__abilities {
+        height: 34%;
+        width: 100%;
+        @media only screen and (max-width: 800px) {
+            margin-top: 1rem;
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        margin-left: 0%;
+    }
+}
+
+// dont touch
+.progressBar {
+    height: 0.4rem;
+    background-color: rgb(238, 228, 84);
+    border: 0;
+    &--red {
+        background-color: rgb(255, 86, 86);
+    }
+    &--green {
+        background-color: #5fe688;
+    }
+}
+.abilityType {
+    background-color: $button-backgroundColor;
+    color: $primary-textColor;
+    padding: 0 2rem;
+    min-width: 10rem;
+    text-align: center;
+    margin: 2px;
+    &--hidden {
+        background-color: #1f444d;
+        color: #ffffff;
+    }
+}
+
+/*
+    MOVES PANEL
+ */
+.extra-option {
+    padding: 2%;
+    padding-bottom: 0.5rem;
+    padding-right: 0;
+    padding-top: 0;
+    background-color: $secondary-backgroundColor;
+}
+
+/*
+    BUTTONS PANEL
+ */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+        font-size: 8rem;
+    }
+}
+
+.shadowed {
+    -webkit-filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.5));
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.loading-container {
+    margin-top: -3rem;
+}
+
+.turn-icon {
+    position: absolute;
+    top: -2.4rem;
+    right: 0;
+    font-size: 2rem;
+    z-index: 10;
+    color: #e7f0f2;
+    text-shadow: -0.2rem 0.2rem 0rem rgba(0, 0, 0, 0.2);
+}
+
+.shiny-icon {
+    position: absolute;
+    top: -2.4rem;
+    left: 0;
+    font-size: 2rem;
+    z-index: 10;
+    color: #e7f0f2;
+    text-shadow: -0.2rem 0.2rem 0rem rgba(0, 0, 0, 0.2);
+}
